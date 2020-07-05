@@ -1,0 +1,293 @@
+<div class="backgroung"></div>
+<div class="wrapper">
+  <app-carousel></app-carousel>
+  <div class="container information-block">
+    <div class="row short-information" data-aos="fade-up" data-aos-duration="2000">
+      <div class="col-lg-4 flex-column justify-content-center">
+        <div class="icon-block">
+          <img
+            src="https://firebasestorage.googleapis.com/v0/b/roshen-bebec.appspot.com/o/icons%2Fdelivery-truck.png?alt=media&token=2d01e964-16e0-44c6-8bb3-7fdcc961fea6"
+            alt="">
+        </div>
+        <p class="headline">Безкоштовна доставка</p>
+        <p>при замовленні від <span>500 ргн</span></p>
+      </div>
+      <div class="col-lg-4 flex-column justify-content-center">
+        <div class="icon-block">
+          <img
+            src="https://firebasestorage.googleapis.com/v0/b/roshen-bebec.appspot.com/o/icons%2Fcandy.png?alt=media&token=f43566fa-d5c3-4479-91f3-010fe191d30a"
+            alt="">
+        </div>
+        <p class="headline">Високіякісна продукції</p>
+        <p>згідно державних стандартів якості</p>
+      </div>
+      <div class="col-lg-4 flex-column justify-content-center">
+        <div class="icon-block">
+          <img
+            src="https://firebasestorage.googleapis.com/v0/b/roshen-bebec.appspot.com/o/icons%2Fprice.png?alt=media&token=2a57d017-1f0f-4492-8f16-9f0509b99d4d"
+            alt="">
+        </div>
+        <p class="headline">Найкращі ціни</p>
+        <p>від офіційного представника</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="category-block">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h4>Наша продукція</h4>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3" *ngFor="let category of categories; let i=index" >
+        <div class="category"
+        (mouseover)='changeScaleOnmouseOver(i)'
+        (mouseleave)='changeScaleOnmouseLaeve(i)'
+        (click)="categoryLinkGroup(category.categoryName)"
+        >
+          <img [src]='category.categoryImg'>
+          <p href="">{{category.categoryName}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="about-products">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="about-products-info">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12">
+                <h4>100% гарантія якості</h4>
+                <div class="icons-block d-flex flex-row justify-content-center">
+                  <div class="d-flex flex-column justify-content-center align-items-center">
+                    <img
+                      src="https://firebasestorage.googleapis.com/v0/b/roshen-bebec.appspot.com/o/icons%2Fcandies.png?alt=media&token=260fa548-bc37-46bb-a014-c46968f75236"
+                      alt="">
+                    <p>Широкий асортимент</p>
+                  </div>
+
+
+                  <div class="d-flex flex-column justify-content-center align-items-center">
+                    <img
+                      src="https://firebasestorage.googleapis.com/v0/b/roshen-bebec.appspot.com/o/icons%2Fcocoa%20(1).png?alt=media&token=c2ac7c35-7e08-4511-aefe-742edf83ab55"
+                      alt="">
+                    <p>Найкраща сировина</p>
+                  </div>
+
+
+                  <div class="d-flex flex-column justify-content-center align-items-center">
+                    <img
+                      src="https://firebasestorage.googleapis.com/v0/b/roshen-bebec.appspot.com/o/icons%2Fbadge%20(1).png?alt=media&token=9436dbaa-690e-4b66-9e28-3f027ed40744"
+                      alt="">
+                    <p>Контроль якості</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="about-products-carousel">
+          <carousel>
+            <slide>
+              <div class="slide  d-flex justify-content-center align-items-center flex-column">
+                <p>Асортимент продукції налічує найрізноманітніші види солодощів: шоколадні та желейні цукерки,
+                  карамель, шоколад, батони, печиво, вафлі, бісквітні рулети, спеції</p>
+                <div class="line"></div>
+              </div>
+            </slide>
+            <slide>
+              <div class="slide  d-flex justify-content-center align-items-center flex-column">
+                <p>У своїй продукції компанія ROSHEN використовує інгредієнти найвищого ґатунку, які імпортують з самих
+                  різних куточків земної кулі. Власна та унікальна рецептура в парі з новітніми технологіями дозволяє
+                  виготовляти найякіснішу продукцію</p>
+                <div class="line"></div>
+              </div>
+            </slide>
+            <slide>
+              <div class="slide  d-flex justify-content-center align-items-center flex-column">
+                <p>Система менеджменту якості у корпорації ROSHEN відповідає міжнародним стандартам - ISO 9001:2008, ISO
+                  22000:2005, IFS та FSSC-22000.</p>
+                <div class="line"></div>
+              </div>
+            </slide>
+          </carousel>
+        </div>
+
+      </div>
+      <div class="col-lg-6">
+        <img
+          src="https://firebasestorage.googleapis.com/v0/b/roshen-bebec.appspot.com/o/background%2Fbg-14.jpg?alt=media&token=f05bfa75-8a3a-4975-a712-69e4b796a9a9"
+          alt="">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="count-block">
+  <div class="container" data-aos="fade-up" data-aos-duration="3000">
+    <div class="row">
+      <div class="col-lg-3 d-flex flex-row justify-content-center">
+        <app-sweets></app-sweets>
+
+      </div>
+      <div class="col-lg-3 d-flex flex-row justify-content-center">
+        <app-plants></app-plants>
+
+      </div>
+      <div class="col-lg-3 d-flex flex-row justify-content-center">
+        <app-country></app-country>
+
+      </div>
+      <div class="col-lg-3 d-flex flex-row justify-content-center">
+        <app-socproject></app-socproject>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="container about-company">
+  <div class="row">
+    <div class="col-lg-7 aboute-image">
+      <div class="theme-img">
+        <img
+          src="https://firebasestorage.googleapis.com/v0/b/roshen-bebec.appspot.com/o/background%2Fabout_img.jpg?alt=media&token=c82e8e99-2df6-4537-9bde-8f18df7bb058"
+          alt="">
+      </div>
+      <div class="about-text d-flex flex-column justify-content-center align-items-center slide-content">
+        <h1>Рошен Львів</h1>
+        <p>офіційний дистрибутор</p>
+        <p>кондитерської корпорації</p>
+        <h2>ROSHEN</h2>
+      </div>
+    </div>
+    <div class="col-lg-5 d-flex align-items-center">
+      <carousel>
+        <slide>
+          <div class="d-flex flex-column justify-content-center align-items-center slide-content">
+            <span>320</span>
+            <h4>
+              Найменувань продукції
+            </h4>
+            <p>
+              Асортимент ROSHEN складається з шоколадних та желейних цукерок, карамелі, ірису, шоколадних плиток та
+              батончиків, печива, вафель, бісквітних рулетів, зефіру, мармеладу та тортів.
+            </p>
+            <div class="line"></div>
+          </div>
+        </slide>
+        <slide>
+          <div class="d-flex flex-column justify-content-center align-items-center slide-content">
+            <span>8 </span>
+            <h4>
+              Фабрик та заводів
+            </h4>
+            <p>
+              Виробничі потужності ROSHEN розташовані в Україні, Литві та Угорщині й сертифіковані відповідно до вимог
+              міжнародних стандартів. Корпорація дбаєте про те, щоб усі її потужності були оснащені сучасним та
+              високотехнологічним обладнанням, а персонал постійно підвищував рівень свого професіоналізму та не
+              зупинявся на досягненому. За рішенням Корпорації Roshen, з 1 квітня 2017 року на Липецькій фабриці було
+              повністю зупинене виробництво, потужності фабрики законсервовані.
+            </p>
+            <div class="line"></div>
+          </div>
+        </slide>
+        <slide>
+          <div class="d-flex flex-column justify-content-center align-items-center slide-content">
+            <span>35 </span>
+            <h4>
+              Країн світу
+            </h4>
+            <p>
+              ROSHEN уже довгі роки працює над тим, щоб її продукцією могли насолодитися в якомога більше країнах світу.
+              На цьому шляху корпорація отримала широке визнання: за результатами рейтингу Global Top-100 Candy
+              Companies-2018 вона увійшла до ТОП-30 кращих виробників кондитерської продукції світу. На сьогодні
+              продукцію ROSHEN можна зустріти на полицях у більшості країнах Європи, Азії, Північній Америці та Океанії.
+            </p>
+            <div class="line"></div>
+          </div>
+        </slide>
+        <slide>
+          <div class="d-flex flex-column justify-content-center align-items-center slide-content">
+            <span>12 </span>
+            <h4>
+              Соціальних проектів
+            </h4>
+            <p>
+              ROSHEN займає активну соціальну позицію і сприяє розбудові стабільного й успішного суспільства.
+              Корпорація реалізує масштабні та системні благодійні і соціально-культурні проекти. Так в 2015 році
+              корпорація ROSHEN ініціювала масштабний проект благодійної допомоги в сфері охорони здоров'я.
+              Загальний обсяг інвестицій ROSHEN у соціальні проекти у 2017–2018 роки становить 357 млн грн.
+              У сфері сталого розвитку ми прагнемо досягати найвищих цілей. Для підтримки цієї мети та для забезпечення
+              інформаційної відкритості Кондитерська корпорація ROSHEN публікує соціальну звітність.
+            </p>
+            <div class="line"></div>
+          </div>
+        </slide>
+      </carousel>
+    </div>
+  </div>
+</div>
+
+<div class="work-block">
+  <div class="work-block-background">
+  </div>
+  <div class="work-block-content d-flex flex-column justify-content-center align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 d-flex flex-column">
+          <h4>РОБОТА В РОШЕН ЛЬВІВ</h4>
+          <p>стань частиною нашої команди</p>
+          <button class="main-btn" data-aos="fade-up" data-aos-duration="3000">Переглянути ваканції</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="contacts-block">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h4>Наші контакти</h4>
+      </div>
+    </div>
+    <div class="row contacts">
+      <div class="col-lg-4 d-flex flex-column justify-content-center align-items-center">
+        <img
+          src="https://firebasestorage.googleapis.com/v0/b/roshen-bebec.appspot.com/o/icons%2Fmap.png?alt=media&token=8ac3c85a-3b71-49be-8408-88fde94958fc"
+          alt="">
+        <h4>Ми знаходимось за адресою</h4>
+        <p>м. Львів вул. Бузкова 2</p>
+      </div>
+      <div class="col-lg-4 d-flex flex-column justify-content-center align-items-center">
+        <img
+          src="https://firebasestorage.googleapis.com/v0/b/roshen-bebec.appspot.com/o/icons%2Fcalendar.png?alt=media&token=9f4d0b79-9e68-4d9b-83e8-c2f4dbd9d947"
+          alt="">
+        <h4>Понеділок - П'ятниця</h4>
+        <p>9:00 - 18:00</p>
+      </div>
+      <div class="col-lg-4 d-flex flex-column justify-content-center align-items-center">
+        <img
+          src="https://firebasestorage.googleapis.com/v0/b/roshen-bebec.appspot.com/o/icons%2Fsocial-media.png?alt=media&token=9c1f7ba7-7b66-4d21-90cc-e1a59c419662"
+          alt="">
+        <h4>Долучайся до нас в соц. мережах</h4>
+        <p>м. Львів вул. Бузкова 2</p>
+      </div>
+    </div>
+  </div>
+</div>
+<app-requests-block></app-requests-block>

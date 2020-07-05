@@ -1,0 +1,32 @@
+
+
+<a class="nav-link" [routerLink]="[ '/home' ]" (click)="categoryLinkNav()" (mouseover)="categoryFadeUp()">Продукція</a>
+
+
+<div class="fixed" id="fixed">
+  <div class="menu-wrapper">
+   
+    <div class="fade-menu" (mouseleave)="fadaDownAll()">
+      <div id="category-menu" data-aos="fade-up" data-aos-duration="2000">
+        <div class="category-menu-wrapper">
+          <div class="category-item" *ngFor="let category of categories; let i=index"
+            (mouseover)="filterType($event, category.categoryName, i)"
+            (click)="categoryLink(category.categoryName)"
+            >
+            {{category.categoryName}}
+          </div>
+        </div>
+      </div>
+       <div  id="type-menu" >
+        <div class="type-menu-wrapper"  (mouseleave)="typeFadeDown()">
+          <div class="type-item" *ngFor="let type of types; let i=index" (click)="typeLink(type.categoryName, type.typeName)">
+            {{type.typeName}}
+          </div>
+    
+        </div>
+       </div>
+       
+    </div>
+   
+  </div>
+</div>

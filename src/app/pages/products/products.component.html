@@ -1,0 +1,295 @@
+<div class="product-block">
+    <div class="container ">
+        <div class="row wrapper">
+            <div class="col-lg-3 category category-wrapper" [ngClass]="{'sticky' : isSticky}">
+
+                <div class="container">
+                    <h4>Групи продуктів:</h4>
+                    <div class="row">
+
+                        <div *ngFor="let category of categories; let i=index"
+                            class="col-lg-6 category-block d-flex flex-column justify-content-center align-items-center"
+                            (click)="onClick(category.categoryName)" (mouseleave)="onHoverOver()"
+                            (mouseover)="onHover(category.categoryName)">
+
+                            <div class="category-icon d-flex flex-column justify-content-center align-items-center">
+                                <div class="category-img">
+                                    <img [src]='category.icon'>
+                                </div>
+                                <div class="category-img-hover"
+                                    *ngIf="category.categoryName===filterCategoty||category.categoryName===hoverCategory">
+                                    <img [src]='category.iconHover'>
+                                </div>
+                            </div>
+                            <h6 class="category-name">{{category.categoryName}}</h6>
+                            <div class="line"
+                                *ngIf="category.categoryName===filterCategoty||category.categoryName===hoverCategory">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h4>Типи продуктів:</h4>
+
+                            <div class="type-block" *ngFor="let type of types; let i=index"
+                                (click)="onClickType(type.typeName, i)">
+
+                                <p> {{type.typeName}}</p>
+                            </div>
+
+
+                            <!-- <div class="type-block">
+                                   
+                                </div> -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-9 products">
+                <div class="row">
+                    <div class="col-lg-12 list-type">
+                        <i class="fas fa-th list-active" (click)="firstList(0)"></i>
+                        <i class="fas fa-th-list" (click)="secondList(1)"></i>
+                    </div>
+                </div>
+                <div id="first-type">
+                    <div class="container">
+                        <div class="row">
+                            <div class="product-card col-lg-6 d-flex flex-column justify-content-center align-items-center"
+                                *ngFor="let product of products; let i=index">
+
+                                <div class="product-card-wrapper" data-aos="zoom-in" data-aos-duration="2000"
+                                    (mouseover)='changeScaleOnmouseOver(i)' (mouseleave)='changeScaleOnmouseLaeve(i)'>
+                                    <div class="new-sticker" *ngIf="product.newItem===true">
+                                    </div>
+                                    <div class="best-price-sticker" *ngIf="product.discount===true">
+                                    </div>
+
+                                    <div class="product-img">
+                                        <img [src]='product.image'>
+                                    </div>
+                                    <h6>{{product.name}}</h6>
+                                    <div class="product-price">
+                                        <h6>Ціна: {{product.price |  number:'.2'}}</h6>
+                                    </div>
+
+                                    <div class="product-description">
+                                        <p>{{product.description}}</p>
+                                    </div>
+
+                                    <div class="datails-btn" (click)="openModal(template, product.id)"> <i
+                                            class="fas fa-shopping-cart"></i><span>Детільніше</span></div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div id="second-type">
+                    <div class="container">
+                        <div class="row product-card product-card-wrapper2"
+                            *ngFor="let product of products; let i=index" data-aos="zoom-in" data-aos-duration="2000"
+                            (mouseover)='changeScaleOnmouseOver2(i)' (mouseleave)='changeScaleOnmouseLaeve2(i)'>
+                            <div class="col-lg-5">
+                                <div class="new-sticker" *ngIf="product.newItem===true">
+                                </div>
+                                <div class="best-price-sticker" *ngIf="product.discount===true">
+                                </div>
+                                <div class="product-img">
+                                    <img [src]='product.image'>
+                                </div>
+                            </div>
+                            <div class="col-lg-7">
+                                <h6>{{product.name}}</h6>
+                                <div class="product-price">
+                                    <h6>Ціна: {{product.price |  number:'.2' }}</h6>
+                                </div>
+                                <div class="product-description">
+                                    <p>{{product.description}}</p>
+                                </div>
+                                <div class="datails-btn" (click)="openModal(template, product.id)">
+                                    <!-- <app-product-details [item]="currentItem"></app-product-details> -->
+                                    <i class="fas fa-shopping-cart"></i><span>Детільніше</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex flex-row justify-content-center align-items-center pagination-bar">
+                    <div *ngFor="let page of pagerArr; let i=index ">
+                        <button type="button" class="pagination"
+                            (click)="sliceProduct(page.start, page.end, i); isActive===true">{{i+1}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<ng-template #template bsModal #parentModal="bs-modal" tabindex="-1" role="dialog"
+    aria-labelledby="dialog-nested-name1">
+    <div class="conatainer">
+        <div class="row">
+            <div class="col-lg-12 modal-header-content">
+                <h4>{{productName}}</h4>
+                <button type="button" class="close-btn" aria-label="Close" (click)="modalRef.hide()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+        <div class="row modal-block">
+            <div class="col-lg-6 ">
+                <div class="modal-product-img d-flex justify-content-center align-items-center">
+                    <div class="new-sticker" *ngIf="productNewItem===true">
+                    </div>
+                    <div class="best-price-sticker" *ngIf="productDiscount===true">
+                    </div>
+                    <img [src]='productIMG'>
+
+                </div>
+            </div>
+            <div class="col-lg-6 product-infomation-block">
+                <div class="logo">
+                    <p><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 169.8 40"
+                            xml:space="preserve">
+                            <g>
+                                <path class="st0" d="M0,37.3h20.9c0,0,0,0,0,0c0.1,0.1,0.2,0.2,0.3,0.2c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0
+                              c0,0,0,0,0,0c0,0,0,0,0.1,0.1c0,0,0,0,0,0c0,0,0.1,0.1,0.1,0.1c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0
+                              c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0.1,0.1,0.2,0.1,0.3,0.2c0,0,0,0,0,0
+                              c0.1,0.1,0.2,0.2,0.4,0.3v0.7H0V37.3z M45.8,38l1.5,1.2h122v-1.9H45.8V38z M55,4.6c3,3,4.6,7.1,4.6,11.9c0,4.7-1.7,8.9-4.7,11.9
+                              c-3,3-7.2,4.7-11.9,4.7h0c-5.3,0-10-2.1-13.1-5.9c-2.3-2.9-3.6-6.6-3.6-10.6c0-5.3,2.1-10,5.8-13C35.1,1.2,38.8,0,43,0L43,0
+                              C47.8,0,52,1.6,55,4.6 M43,29.7c4.7,0,8.4-2.8,10-7.7c0.6-1.7,0.9-3.6,0.9-5.5c0-3.4-0.9-6.6-2.6-9c-2-2.8-4.8-4.2-8.3-4.2
+                              c-2.8,0-5.2,1-7.1,2.9c-2.4,2.4-3.9,6.3-3.8,10.4c0,2.7,0.6,5.3,1.8,7.4C35.7,27.7,39.1,29.7,43,29.7 M43,32.9L43,32.9L43,32.9z
+                               M74.5,14.2c-0.3-0.1-0.7-0.3-1.2-0.5c-2.5-0.9-6.3-2.3-6.2-5.9c0.1-2.6,2.2-4.5,4.9-4.5c2.6,0,4.5,1.4,5.2,3.6l0,0.1l0.7,0.3
+                              L80,2.7l-0.1-0.1c-1.8-1.7-4.2-2.5-7-2.5c-5.3,0-9.5,2.9-10.4,7.3c-0.6,2.9,0.2,5.7,2.1,7.5c1.4,1.4,3.4,2.2,5.2,3l0,0
+                              c0,0,0,0,0.1,0c1.9,0.8,4.6,1.8,6,3.5c0.8,1,1.1,2.3,0.9,3.8c-0.4,2.6-2.4,4.4-5.1,4.5c-4,0.2-7.5-2.2-8.1-5.2l0-0.1l-0.8-0.3
+                              l-1.5,5.1l0.1,0.1c2,2.3,5.4,3.6,9.3,3.6c0.2,0,0.3,0,0.4,0c6.1-0.2,10.6-4.5,10.6-10.2C81.8,19.2,79.3,16.3,74.5,14.2 M163.4,0.6
+                              l1.2,1.9v18.3l-18-20.1l-0.1-0.1h-5.9l1.6,2.5l0,27.6l-1.2,1.9h6.3l-0.9-1.8V8.5l22.1,24.3l0.3,0.4V2.6l0.9-2H163.4z M123.8,29.2
+                              V17.8h10.1l1.2-3.4l-0.6,0.2h-10.8V3.8h8.7l3,1l1.5-4.2h-19.5l0.9,2.4v27.4l-0.9,2.2h19.1l1.5-4.3l-3.8,1H123.8z M114.1,0.6h-7.4
+                              l1.2,1.9v12.2h-17V2.4l0.9-1.8h-7.4l1.2,1.9v28.2l-1.2,1.9h7.4l-0.9-1.8V17.8h17v12.8l-1.2,1.9h7.4l-0.9-1.8V2.4L114.1,0.6z
+                               M40.6,37.9c-0.3,0-0.5,0-0.8,0c-5.5,0-11.3-3.8-17.2-11.2c-2.3-2.9-4.9-6.2-7.2-8.9c4.6-0.8,7.8-4.4,7.8-8.7
+                              c0-5.4-4.3-8.8-11.2-8.8L1.4,0.6l1,2.4v27.7l-1.1,1.9h7.4l-0.9-1.8V3.4c6.8-0.5,10,1.3,10.3,5.7c0.1,1.8-0.4,3.4-1.6,4.7
+                              c-1.5,1.7-4,2.7-7.2,2.8l-0.1,0l-0.3,0.8l4.1,5.1l0.8,1C21,32.7,26.7,40,35.4,40c1.8,0,3.7-0.3,5.7-0.9l0.2-0.1l-0.6-1.1L40.6,37.9
+                              z"></path>
+                            </g>
+                        </svg></p>
+                </div>
+                <p class="description">{{productDescription}}</p>
+                <div class="price">
+                    <p>{{productPrise |  number:'.2' }}</p>
+                </div>
+                <div class="container">
+
+                    <div class="row">
+                        <div class="col-lg-12 d-flex flex-row description-block">
+                            <div class="icon-block">
+                                <img src="https://firebasestorage.googleapis.com/v0/b/roshen-bebec.appspot.com/o/icons%2Fweight.png?alt=media&token=875201a8-b358-41d4-b383-1d395c6b4f4a"
+                                    alt="">
+                            </div>
+                            <div class="d-flex flex-row align-items-end information">
+                                <p>Вага: </p>
+                                <span class="d-flex flex-row">
+                                    <p>{{productWeight}}</p>
+                                    <p *ngIf="productUnitOfMeasurement=='кг'">кг</p>
+                                    <p *ngIf="productUnitOfMeasurement=='шт'">г</p>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 d-flex flex-row align-items-end  description-block">
+                            <div class="icon-block">
+                                <img src="https://firebasestorage.googleapis.com/v0/b/roshen-bebec.appspot.com/o/icons%2Fcalendar%20(1).png?alt=media&token=d4df78cb-eb5b-4702-8b27-cc256658e288"
+                                    alt="">
+                            </div>
+                            <div class="d-flex flex-row align-items-end information">
+                                <p>Термін придатності: </p>
+                                <span class="d-flex flex-row">
+                                    <p>{{productShelfLife}}</p>
+                                    <p>міс.</p>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 d-flex flex-row description-block">
+                            <div class="icon-block">
+                                <img src="https://firebasestorage.googleapis.com/v0/b/roshen-bebec.appspot.com/o/icons%2Fcount.png?alt=media&token=0ff75296-dce8-4cc4-80aa-1fc6aeff0d29"
+                                    alt="">
+                            </div>
+                            <div class="d-flex flex-row align-items-end information">
+                                <p>Мінімальне замовленн: </p>
+                                <span class="d-flex flex-row">
+                                    <p>{{productMinQuantity}}</p>
+                                    <p *ngIf="productUnitOfMeasurement=='кг'">кг</p>
+                                    <p *ngIf="productUnitOfMeasurement=='шт'">шт</p>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 d-flex flex-row align-items-end  description-block">
+                            <div class="icon-block">
+                                <img src="https://firebasestorage.googleapis.com/v0/b/roshen-bebec.appspot.com/o/icons%2Fbox.png?alt=media&token=05da2f03-f513-4ed8-897f-ae116bbbc198"
+                                    alt="">
+                            </div>
+                            <div class="d-flex flex-row align-items-end information">
+                                <p>Кількість в ящику: </p>
+                                <span class="d-flex flex-row">
+                                    <p>{{productAmountInTheDrawer}}</p>
+                                    <p>{{productUnitOfMeasurement}}</p>
+                                </span>
+                            </div>
+
+                        </div>
+
+                        <div class="col-lg-12 justify-content-center align-items-center line-block">
+                            <div class="line line-modal"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row basket">
+            <div class="col-lg-3 d-flex flex-row">
+                <div class="shoppain-bag-icon">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/roshen-bebec.appspot.com/o/icons%2Fprice-tag.png?alt=media&token=f32c76dd-ace5-44f4-8fa5-71627cecb763"
+                        alt="">
+                </div>
+                <div class="basket-count d-flex justify-content-center align-items-center flex-row">
+                    <input type="number" class="form-control" matInput name="count" [(ngModel)]="count"
+                        (change)="onCountChange()">
+                    <div class="arrow-block d-flex flex-column">
+                        <button (click)="countPlus()"><i class="fas fa-angle-up"></i></button>
+                        <button (click)="countMinus()" [disabled]='count===0'><i class="fas fa-angle-down"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 ">
+                <div class="weight d-flex flex-row">
+                    <p>Вага: </p>
+                    <p class="propertyValue">{{totalWeight |  number:'.3'}} кг</p>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="sum d-flex flex-row">
+                    <p>Сума: </p>
+                    <p class="propertyValue">{{sum |  number:'.2'}} грн</p>
+                </div>
+            </div>
+            <div class="col-lg-3 ">
+                <div class="add-to-basket">
+                    <button mat-raised-button color="primary" id="addButton" (click)="addProduct()"
+                        [disabled]='count==0'>Додати</button>
+                </div>
+            </div>
+        </div>
+        <div class="row" id=message>
+
+            <div>
+                * Замовлення не може бути менше від мінімального
+            </div>
+        </div>
+    </div>
+</ng-template>

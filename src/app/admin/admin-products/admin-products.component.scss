@@ -1,0 +1,43 @@
+@import "../admin-category/admin-category.component.scss";
+
+.discountInput{
+    width: 80%;
+   height: 80%;
+   margin-right: 5px;
+   text-align: center;
+   border-radius: 2px;
+}
+
+mat-checkbox{
+  margin-left: 15px;
+}
+
+table {
+    width: 100%;
+    table-layout: fixed;
+  }
+  
+  th, td {
+    overflow: hidden;
+    // width: 11%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align:left;
+    
+  }
+
+  ng-container {
+      th{
+        text-align: center;
+      }
+   
+}
+
+th{
+  margin-left: 10px;
+}
+
+
+.table-column{
+  width: 60%;
+}

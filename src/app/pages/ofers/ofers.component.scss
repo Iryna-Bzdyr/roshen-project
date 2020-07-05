@@ -1,0 +1,97 @@
+.ofer-block{
+    color:  #5D4037;
+    padding: 3%;
+    margin-bottom: 5%;
+    img{
+        width: 100%;
+        height: 350px;
+    }
+    p{font-weight: bold;}
+    .introduction{
+      font-weight: 500;
+    }
+
+}
+
+.ofer-block:hover{
+    box-shadow: 5px 5px 30px black;
+}
+.wrapper{
+    padding: 3%;
+}
+.backgroung{
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    z-index: -10;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%; 
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/roshen-bebec.appspot.com/o/background%2F3254309.jpg?alt=media&token=21ec919f-dd22-47cc-929f-262a3fd9b725');
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.8;
+    
+}
+
+  .modal-menu{
+    position: relative;
+    padding: 5%;
+    background-color: rgb(240, 235, 232);
+    color:  #5D4037;
+      .close-btn{
+          position: absolute;
+          right: 0%;
+          top: 0%;
+      }
+      li{
+          font-size: 14px;
+         
+      }
+      p{
+          font-weight: 800;
+      }
+      span{
+        color: #e9b124; 
+      }
+      .main-btn{
+          position: absolute;
+          right: 3%;
+          bottom: 5%;
+      }
+  }
+
+  .main-btn{
+    cursor: pointer; 
+    padding: 2% 7%;
+    color: #5D4037;
+    background-color: #f0c96a;
+    border: none;
+    font-family: 'M PLUS Rounded 1c', sans-serif;  
+   
+  }
+
+  mat-form-field{
+    width: 100%;
+   
+}
+  
+.sv-slock{
+    padding: 5%;
+    background-color: rgb(240, 235, 232);
+    .main-btn {
+        margin: 3%;
+    } 
+    .close-btn{
+        position: absolute;
+        right: -5%;
+        top: -5%;
+    }
+} 
+
+#message-block{
+    display: none;
+    padding: 30% 3%;
+    color: rgb(218, 13, 13);
+}

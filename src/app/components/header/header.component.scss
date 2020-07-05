@@ -1,0 +1,84 @@
+
+.wrapper{
+  background-color: rgb(247, 242, 239);
+}
+.nav-wrapper{
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/roshen-bebec.appspot.com/o/background%2Frectangle-36.png?alt=media&token=590ab893-05b3-4991-8f05-4dc9d2a17caf');
+  width: 100%;
+  background-size: cover;
+  // height: 50px;
+  padding: 1%;
+  font-family: 'Comfortaa', cursive;
+  overflow: hidden;
+}
+.header-information{
+  padding: 10px 0px;
+  font-family: 'Pattaya', sans-serif;
+}
+.bg-light{
+  background-color: transparent;
+}
+
+svg{
+  fill:#5D4037;
+}
+
+svg:hover{
+  fill:#f0c96a;
+  
+}
+.fixed-header {
+  position: fixed;
+  z-index:999;
+  height: 0px;
+  
+}
+
+#frugalmap {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  opacity: 0.8;
+  color: #5D4037;
+  
+}
+
+.mat-elevation-z5 {
+  position: relative;
+}
+
+.sticky {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 5;
+  // box-shadow: 5px 5px 20px rgb(73, 73, 73);
+}
+button{
+  background-color: transparent;
+  border: transparent;
+}
+span{
+  color: #f0c96a;
+  padding-left: 5px;
+}
+
+p{
+  font-family: 'Pattaya', sans-serif;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+nav{
+  a,li{
+    text-decoration: none;
+    list-style-type: none;
+    color:  #5D4037;
+    font-weight: bold;
+    font-size: 18px;
+  }
+ li{
+   margin: 0 3%;
+ }
+}

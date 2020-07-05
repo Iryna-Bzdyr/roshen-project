@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-7">
+             <div class="cart-block">
+              <iframe src="https://www.google.com/maps/d/embed?mid=1-fs4E6taxYfOKYXwWbAgyu9O5E2nePuz" width="540" height="500"></iframe>
+             </div>
+            <div class="image-block">
+              <img src="https://firebasestorage.googleapis.com/v0/b/roshen-bebec.appspot.com/o/background%2Fbg-18.jpg?alt=media&token=2fd41a02-cb78-498f-a4c9-04b2bc46e00f" alt="">
+            </div>
+        </div>
+        <div class="col-lg-5">
+          <h4>Допоможіть нам стати кращими</h4>
+            <form [formGroup]="requestForm" (ngSubmit)="onSubmit($event)">
+
+                <div class="example-container">
+                    <mat-form-field appearance="outline">
+                      <mat-label>Введіть Ваше ім'я</mat-label>
+                      <input matInput  formControlName="userName" required >
+                      <mat-error *ngIf="requestForm.get('userName').invalid">{{getErrorMessage('userName')}}</mat-error>
+                    </mat-form-field>
+                  </div>
+
+                <div class="example-container">
+                    <mat-form-field appearance="outline">
+                      <mat-label>Вкажіть свій email</mat-label>
+                      <input matInput placeholder="pat@example.com" formControlName="email" required>
+                      <mat-error *ngIf="requestForm.get('email').invalid">{{getErrorMessage('email')}}</mat-error>
+                    </mat-form-field>
+                  </div>
+
+                  <div class="example-container">
+                    <mat-form-field appearance="outline">
+                      <mat-label>Вкажіть свій телефон</mat-label>
+                      <input matInput ngxPhoneMaskBr  placeholder="(80) 66666-6666" formControlName="userPhone" required>
+                      <mat-error *ngIf="requestForm.get('userPhone').invalid">{{getErrorMessage('userPhone')}}</mat-error>
+                    </mat-form-field>
+                  </div>
+
+                  <div class="example-container">
+                    <mat-form-field appearance="outline">
+                      <mat-label>Зауваження та пропозиції</mat-label>
+                      <textarea matInput formControlName="userDescription" required></textarea>
+                      <mat-error *ngIf="requestForm.get('userDescription').invalid">{{getErrorMessage('userDescription')}}</mat-error>
+                    </mat-form-field>
+                  </div>
+                  <button  class="main-btn" (click)="addRequest()">Відправити</button>
+            </form>
+        </div>
+    </div>
+</div>

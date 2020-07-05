@@ -1,0 +1,120 @@
+.fixed{
+    position: fixed;
+    z-index: 1;
+    height: 100vh;
+    width: 100vw;
+}
+
+.menu-wrapper{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#category-menu{
+    cursor: pointer;
+    position: absolute;
+    width: 225px;
+    display: none;
+    -webkit-animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+   
+}
+@-webkit-keyframes slide-top {
+    0% {
+      -webkit-transform: translateY(100px);
+              transform: translateY(100px);
+    }
+    100% {
+      -webkit-transform: translateY(0px);
+              transform: translateY(0px);
+    }
+  }
+  @keyframes slide-top {
+    0% {
+      -webkit-transform: translateY(100px);
+              transform: translateY(100px);
+    }
+    100% {
+      -webkit-transform: translateY(0px);
+              transform: translateY(0px);
+    }
+  }
+  
+  
+
+
+
+
+
+.category-menu-wrapper, .type-menu-wrapper{
+    width: 100%;
+    background-color: #5a4f45;
+    padding: 2%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.category-item, .type-item{
+    margin: 2% 2% 2% 3%;
+    color: white;
+    padding: 4%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    box-sizing: border-box;
+    width: 200px;
+    border: 2px solid transparent;
+}
+
+.category-item:hover, .active, .type-item:hover{
+    border: 2px solid #e9b124;
+    color: #e9b124;
+    
+}
+
+
+#type-menu{
+    width: 225px;
+    position: absolute;
+    left: 25%;
+    cursor: pointer;
+    display: none;
+    -webkit-animation: slide-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: slide-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+
+@-webkit-keyframes slide-left {
+    0% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+    }
+    100% {
+      -webkit-transform: translateX(-100px);
+              transform: translateX(-100px);
+    }
+  }
+  @keyframes slide-left {
+    0% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+    }
+    100% {
+      -webkit-transform: translateX(-100px);
+              transform: translateX(-100px);
+    }
+  }
+.fade-menu{
+  width: 470px;
+  height: 390px;
+}
+
+a,li{
+  text-decoration: none;
+  list-style-type: none;
+  color:  #5D4037;
+  font-weight: bold;
+  font-size: 18px;
+}

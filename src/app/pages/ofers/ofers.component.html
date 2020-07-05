@@ -1,0 +1,127 @@
+<div class="backgroung"></div>
+
+<div class="container wrapper">
+    <div class="row ofer-block" *ngFor="let ofer of ofers; let i=index"
+    data-aos="fade-down"
+    data-aos-easing="linear"
+    data-aos-duration="1500"
+    
+    
+    >
+        <div class="col-lg-6">
+            <img [src]="ofer.oferPhoto">
+        </div>
+        <div class="col-lg-6 d-flex justify-content-center align-items-center flex-column"
+      
+        >
+            <h4>{{ofer.position}}</h4>
+            <div>
+            <p>Опис:</p>
+            <p class="introduction">{{ofer.description}}</p>
+            <p>Зарплата:</p>
+            <p class="introduction">{{ofer.salary}}</p>
+            </div>
+            <div  class="main-btn" (click)="openModal(template, ofer.oferID)" >
+                Детальніше
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<ng-template #template bsModal #parentModal="bs-modal" tabindex="-1" role="dialog"
+    aria-labelledby="dialog-nested-name1">
+    <div class="row">
+        <div class="col-lg-12 modal-menu">
+            <button mat-icon-button color="primary" class="close-btn" aria-label="Close" (click)="modalRef.hide()">
+                <mat-icon> cancel_presentation</mat-icon>
+            </button>
+            <h4>{{position}}</h4>
+            <p>Опис:  <span>{{description}}</span></p>
+            <p>Заробітна плата:  <span>{{salary}}</span></p>
+            <p>Контактна особа:  <span>{{contactPerson}}</span></p>
+            <p>Контактний телефон:  <span>{{contactRersonPhone}}</span></p>
+            <p>Вимоги:</p>
+            <ul >
+                <li *ngFor="let requirement of requirements; let i=index">{{requirement.requirementsName}}</li>
+            </ul>
+            <p>Обов'язки:</p>
+            <ul>
+                <li *ngFor="let duty of duties; let i=index">{{duty.dutiesName}}</li>
+            </ul>
+            <p>Ми пропонуємо:</p>
+            <ul >
+                <li *ngFor="let workingCondition of workingConditions; let i=index">{{workingCondition.conditionsName}}
+                </li>
+            </ul>
+            <div  class="main-btn" (click)="openSecondModal(template2)" >
+                Відправити резюме
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+
+<ng-template #template2 bsModal  tabindex="-1" role="dialog"
+    aria-labelledby="dialog-nested-name1">
+    <div class="container">
+        <div class="row sv-slock" id="sv-block">
+            <div class="col-lg-12">
+              <button mat-icon-button color="primary" class="close-btn" aria-label="Close" (click)="modalRef.hide()">
+                <mat-icon> cancel_presentation</mat-icon>
+            </button>
+                <form [formGroup]="requestForm" (ngSubmit)="onSubmit($event)">
+
+                    <div class="example-container">
+                        <mat-form-field appearance="outline">
+                          <mat-label>Введіть Ваше ім'я</mat-label>
+                          <input matInput  formControlName="userName" required >
+                          <mat-error *ngIf="requestForm.get('userName').invalid">{{getErrorMessage('userName')}}</mat-error>
+                        </mat-form-field>
+                      </div>
+    
+                    <div class="example-container">
+                        <mat-form-field appearance="outline">
+                          <mat-label>Вкажіть свій email</mat-label>
+                          <input matInput placeholder="pat@example.com" formControlName="email" required>
+                          <mat-error *ngIf="requestForm.get('email').invalid">{{getErrorMessage('email')}}</mat-error>
+                        </mat-form-field>
+                      </div>
+    
+                      <div class="example-container">
+                        <mat-form-field appearance="outline">
+                          <mat-label>Вкажіть свій телефон</mat-label>
+                          <input matInput ngxPhoneMaskBr  placeholder="(80) 66666-6666" formControlName="userPhone" required>
+                          <mat-error *ngIf="requestForm.get('userPhone').invalid">{{getErrorMessage('userPhone')}}</mat-error>
+                        </mat-form-field>
+                      </div>
+      
+                      <div class="example-container">
+                        <div class="container loadsection" id="loadsection">
+                            <div class="row">
+                              <div class="col lg-12">
+  
+                                <h5 class="card-title">Select a file for upload:</h5>
+                                <input type="file" formControlName=sv  #fileUploader (change)="upload($event)" accept=".docx,.xls,.xlsx,.pdf" />
+                                <mat-progress-bar class="example-margin" [color]="red" [mode]="mode" [value]="uploadProgress | async">
+                                </mat-progress-bar>
+                              </div>
+                            </div>
+                            <div class="row" *ngIf="downloadURL | async; let downloadSrc" id="alert">
+                             
+                              
+                            </div>
+                          </div>
+
+                      </div>
+                      <button  class="main-btn" (click)="addRequest()">Відправити</button>
+                </form>
+            </div>
+        </div>
+        <div class="row" id="message-block">
+          <div class="col-lg-12">
+            <p>Реземе відправлено, чекайте нашого дзвінка!</p>
+          </div>
+        </div>
+    </div>
+</ng-template>

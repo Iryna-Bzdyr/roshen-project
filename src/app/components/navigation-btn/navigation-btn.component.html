@@ -1,0 +1,8 @@
+
+<div class="nav-btn d-flex flex-column">
+    <button (click)="homeLink()"><i class="fas fa-home"></i></button>
+    <button (click)="basketLink()"><i class="fas fa-shopping-basket"></i></button>
+    <button (click)="ordersLink()"><i class="fas fa-briefcase"></i></button>
+</div>
+
+<button *ngIf="isShow" class="top-btn" (click)="gotoTop()"><i class="fas fa-chevron-up"></i></button>

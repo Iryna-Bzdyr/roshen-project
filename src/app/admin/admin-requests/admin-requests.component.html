@@ -1,0 +1,51 @@
+
+ <mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder=" ">
+  </mat-form-field>
+  
+  <div class="mat-elevation-z8 example-container">
+    <table mat-table [dataSource]="dataSource" matSort>
+  
+
+      <ng-container matColumnDef="requestDescription">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Request Description </th>
+        <td mat-cell *matCellDef="let row"> {{row.requestDescription}} </td>
+      </ng-container>
+     
+      <ng-container matColumnDef="userName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> User Name </th>
+        <td mat-cell *matCellDef="let row"> {{row.userName}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="userPhone">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> User Phone </th>
+        <td mat-cell *matCellDef="let row"> {{row.userPhone}} </td>
+      </ng-container>
+  
+     
+      <ng-container matColumnDef="userEmail">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> User Email </th>
+        <td mat-cell *matCellDef="let row"> {{row.userEmail}} </td>
+      </ng-container>
+
+    
+      <ng-container matColumnDef="reguestDate">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Reguest Date </th>
+        <td mat-cell *matCellDef="let row"> {{row.reguestDate | date:"MM/dd/yy" }} </td>
+      </ng-container>
+
+     
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef> Delete </th>
+        <td mat-cell *matCellDef="let row" > <button (click)="deleteCategory(row)" mat-raised-button color="warn" [disabled]='editStatus'
+          >Delete</button> </td>
+      </ng-container>
+  
+      <tr mat-header-row class="headerRow" *matHeaderRowDef="displayedColumns; sticky: true" ></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" >
+      </tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 30, 100]"></mat-paginator>
+  </div>

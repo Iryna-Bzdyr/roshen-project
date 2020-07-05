@@ -1,0 +1,39 @@
+ 
+  .top-btn{
+    border: none;
+    height: 45px;
+    width: 45px;
+    color: white;
+    background-color: #f0c96a;
+    position: fixed;
+    bottom: 10px;
+    right: 12px;
+    text-align: center;
+    outline: none;
+    box-shadow: 2px 2px 10px rgb(66, 65, 65);
+  }
+  button:hover{
+    color: #5D4037;  
+  }
+
+  .nav-btn{
+    position: fixed;
+    right: 0px;
+    top: 30vh;
+    button{
+    border: none;
+    height: 45px;
+    width: 50px;
+    color: white;
+    background-color: #f0c96a;
+    bottom: 10px;
+    right: 12px;
+    text-align: center;
+    outline: none;
+    margin: 3%;
+    }
+    button:hover{
+      color: #5D4037; 
+    }
+   
+  }
