@@ -10,7 +10,7 @@ export class OferService {
   ofers: Array<IOfer> = []
   private url: string
    constructor(private http:HttpClient) {
-     this.url = 'http://localhost:3000/ofer'
+     this.url = 'https://my-roshen-project.herokuapp.com/ofer'
     }
     getOfer(): Array<IOfer> {
      return this.ofers
@@ -27,5 +27,5 @@ export class OferService {
    updateJSONOfer(ofer:IOfer): Observable<Array<IOfer>>{
      return this.http.put<Array<IOfer>>(`${this.url}/${ofer.oferID}`, ofer)
    }
-  
+
 }

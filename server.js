@@ -2,8 +2,8 @@ const jsonServer = require('json-server');
 const server = jsonServer.create();
 const router = jsonServer.router('db.json');
 const middlewares = jsonServer.defaults();
-const port = process.env.PORT || 4000;
-
+// const port = process.env.PORT || 4000;
+const port = 'https://my-roshen-project.herokuapp.com/'
 server.use(middlewares);
 server.use(router);
 

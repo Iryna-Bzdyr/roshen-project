@@ -11,7 +11,7 @@ export class OrderService {
 orders:Array<IOrder>=[]
 private url: string
   constructor(private http:HttpClient) {
-    this.url = 'http://localhost:3000/orders'
+    this.url = 'https://my-roshen-project.herokuapp.com/orders'
    }
 
    getOrder(): Array<IOrder> {

@@ -10,7 +10,7 @@ export class ProductService {
 products: Array<IProduct> = []
 private url: string
   constructor(private http: HttpClient) {
-    this.url = 'http://localhost:3000/products'
+    this.url = 'https://my-roshen-project.herokuapp.com/products'
    }
   getProducts(): Array<IProduct> {
     return this.products
@@ -29,5 +29,5 @@ private url: string
   }
   getJSONOneProduct(id:string):Observable<IProduct>{
     return this.http.get<IProduct>(`${this.url}/${id}`)
-  } 
+  }
 }

@@ -10,7 +10,7 @@ export class OferRequestService {
   oferRequest:Array<IOferRequests> = []
   private url: string
   constructor(private http: HttpClient) {
-    this.url = 'http://localhost:3000/oferRequest'
+    this.url = 'https://my-roshen-project.herokuapp.com/oferRequest'
    }
    getOferRequests(): Array<IOferRequests> {
      return this.oferRequest

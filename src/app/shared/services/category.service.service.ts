@@ -10,7 +10,7 @@ export class CategoryService {
  categories: Array<ICategory> = []
  private url: string
   constructor(private http:HttpClient) {
-    this.url = 'http://localhost:3000/category'
+    this.url = 'https://my-roshen-project.herokuapp.com/category'
    }
    getCategory(): Array<ICategory> {
     return this.categories
